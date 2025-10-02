@@ -142,21 +142,21 @@ def generateReport(leave):
 
     # Step 6: Write to file
     today = datetime.today()
-    if any_date.day == 1:
-        if any_date.month == 1:
-            month = 12
-            year = any_date.year - 1
-            filename = f"{calendar.month_name[month]} - {year}.txt"
+    if today.day == 1:
+        if today.month == 1:
+            RepMonth = 12
+            RepYear = today.year - 1
+            filename = f"{calendar.month_name[RepMonth]} - {RepYear}.txt"
             output_path = os.path.join(os.getcwd(), filename)
         else:
-            month = any_date.month - 1
-            year = any_date.year
-            filename = f"{calendar.month_name[month]} - {year}.txt"
+            RepMonth = today.month - 1
+            RepYear = today.year
+            filename = f"{calendar.month_name[RepMonth]} - {RepYear}.txt"
             output_path = os.path.join(os.getcwd(), filename)
     else:
-        month = any_date.month
-        year = any_date.year
-        filename = f"{calendar.month_name[month]} - {year}.txt"
+        RepMonth = today.month
+        RepYear = today.year
+        filename = f"{calendar.month_name[RepMonth]} - {RepYear}.txt"
         output_path = os.path.join(os.getcwd(), filename)
 
     with open(output_path, 'w', encoding='utf-8') as out_file:
